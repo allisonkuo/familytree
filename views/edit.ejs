@@ -1,0 +1,55 @@
+<%- include("partials/header") %>
+<section class="header-container container">
+    <div id="header" class="row">
+        <div class="col-md-12">
+            <h1 class="header-name">EDIT PERSONAL INFO</h1>
+        </div>
+    </div>
+</section>
+
+<section class="content-container container-fluid py-5">
+    <div class="forms-container container p-5">
+        <div class="">
+            <h3>PERSONAL INFO</h3>
+            <form id="editInfoForm" action="/family/<%= person._id %>" method="POST">
+                <div class="form-group row">
+                    <label for="born" class="col-sm-4 col-md-3 col-form-label">Year Born</label>
+                    <div class="col-sm-8 col-md-9">
+                        <input type="text" class="form-control" id="born" name="person[born]" placeholder="1990" value="<%= person.born %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="hometown" class="col-sm-4 col-md-3 col-form-label">Hometown</label>
+                    <div class="col-sm-8 col-md-9">
+                        <input type="text" class="form-control" id="hometown" name="person[hometown]" placeholder="San Francisco"
+                            value="<%= person.hometown %>">
+                    </div>
+                </div>
+                <div class="custom-file col-sm-12">
+                    <input type="file" class="custom-file-input" id="customFile" name="person[avatarSrc]" >
+                    <label class="custom-file-label" for="customFile">Choose Profile Image</label>
+                </div>
+                <h3 class="mt-5 mb-4">Relatives</h3>
+                <% relatives.forEach((relative)=> { %>
+                    <div class="form-group row relative-row">
+                        <label for="relative<%= relative.id %>" class="col-sm-4 col-md-2 col-form-label"><%= relationMap[relative.id] %></label>
+                        <div class="col-sm-7  col-md-9">
+                            <input type="text" class="form-control" id="<%= relative.id %>" name="person[<%= relationMap[relative.id] %>]" placeholder="Luke"
+                                value="<%= relative.name %>">
+                        </div>
+                        <div class="col-sm-1">
+                            <button type="button" class="btn btn-danger trash"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                <% }) %>
+                <button type="submit" id="submitInfo" class="btn btn-dark col-sm-12 col-md-4 mt-4">SUBMIT</button>
+            </form>
+        </div>
+    </div>  
+</section>
+
+
+
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,31 @@
+<%- include("partials/header") %>
+
+<section class="header-container container">
+    <div id="header" class="row">
+        <div class="col-md-12">
+            <h1 class="header-name">FAMILY TREE</h1>
+        </div>
+    </div>
+</section>
+
+<section class="content-container container-fluid py-5">
+    <div class="container">
+        <div class="row">
+            <% people.forEach((person)=> { %>
+            
+            <div class="col-sm-5 col-md-3 col-lg-2 card">
+                <img class="card-img-top small" src="<%= person.toObject().avatarSrc %>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= person.name %>
+                    </h5>
+                    <a href="/family/<%= person._id %>" class="stretched-link"></a>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+        
+    </div>
+</section>
+
+<%- include("partials/footer") %>
