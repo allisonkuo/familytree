@@ -60,6 +60,25 @@
             </div>
         <% } %>
 
+        <% if (relatives[person.id].spouse !==undefined && relatives[person.id].spouse.length !==0) { %>
+            <div>
+                <h3>Spouse</h4>
+                    <div class="row relatives-container">
+                        <% relatives[person.id].spouse.forEach((spouse)=> { %>
+                            <div class="col-md-3 card">
+                                <img class="card-img-top" src="<%= spouse.avatarSrc %>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= spouse.name %>
+                                    </h5>
+                                    <a href="/family/<%= spouse._id %>" class="stretched-link"></a>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+            </div>
+        <% } %>
+
         <% if (relatives[person.id].children !==undefined && relatives[person.id].children.length !==0) { %>
             <div>
                 <h3>Children</h4>
@@ -77,26 +96,6 @@
                     <% }) %>
                 </div>
             </div>
-        <% } %>
-
-        <% if (relatives[person.id].spouse !==undefined && relatives[person.id].spouse.length !==0) { %>
-        <div>
-            <h3>Spouse</h4>
-            <div class="row relatives-container">
-                <% relatives[person.id].spouse.forEach((spouse)=> { %>
-                    <div class="col-md-3 card">
-                        <img class="card-img-top" src="<%= spouse.avatarSrc %>"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <%= spouse.name %>
-                            </h5>
-                            <a href="/family/<%= spouse._id %>" class="stretched-link"></a>
-                        </div>
-                    </div>
-                <% }) %>
-            </div>
-        </div>
         <% } %>
 
     </div>

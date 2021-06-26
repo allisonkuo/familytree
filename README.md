@@ -1,25 +1,49 @@
+# FAMILY TREE
+
 This is a quick sample site that displays a family tree. The site includes the following pages:
 
 - HOME PAGE: list all the family members of the current user's family tree
-- PERSON PAGE: display info about a person. This page will contain links to direct family members (parents, siblings, children)
-- USER PAGE: the account info page of the user
+- PERSON PAGE: display info about a person. This page will contain links to direct family members (parents, siblings, children, spouse)
+- USER PAGE: the account info page of the user, where the user can edit their personal information.
 
+## Getting Started
 
-PROCESS OF BUILDING THE PAGE:
-1. Determine the technologies to use. Given the time constraint, I am creating a simple Node.js app using Express and MongoDB.
-2. Build out skeleton of app to get basic information onto page.
-    a) Start by building out the basic app.js to get the app running
-        - Create simple route to the index
-        - Create the HTML skeleton in the header/footer partials to reduce duplicate code
-3. Design family tree page (pen/paper)
-    a) Figure out what components are needed on each page:
-    - HOME PAGE
-        - 
-4. Start with basic implementation (ignore fancy CSS stuff to make it pretty, just get content onto page)
+### Prerequisites
 
+Here is a list of items that are required:
 
+- npm
+- MongoDB
+
+### Installation
+1) Clone the repo
+2) Install dependencies
+```
+npm install
+```
+3) Import test data below into MongoDB
+4) Launch application
+```
+node app.js
+```
+5) Open the application in your browser at [http://localhost:3000](http://localhost:300)
+
+## Project Details
+
+The application has the following directory structure:
+
+```
+├── app.js               # Main Entry
+├── controllers          # The functions behind the APIs
+├── public               # The public directory with client-side code
+├── routes               # The endpoint definitions
+├── views                # The views rendered by the server to the client (templates)
+├── package.json
+└── README.md
+```
 
 TEST DATA USED:
+```
 [
     {
         "id": 0,
@@ -338,3 +362,4 @@ TEST DATA USED:
         "avatarSrc": "https://images.unsplash.com/photo-1560525821-d5615ef80c69?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
     }
 ]
+```
